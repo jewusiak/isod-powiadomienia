@@ -1,5 +1,5 @@
 import datetime
-
+from pathlib import Path
 import requests
 import json
 import smtplib, ssl
@@ -17,6 +17,8 @@ def getNewResp(login, apikey):
 
 
 def getOldJson():
+    fl=Path("last_news.isod")
+    fl.touch()
     f = open("last_news.isod", "r")
     try:
         last_resp = json.loads(f.read())
@@ -26,9 +28,9 @@ def getOldJson():
     return last_resp
 
 
-def writeToFile(resp: requests.Response):
+def writeToFile(resp: str):
     f = open("last_news.isod", "w")
-    f.write(resp.text)
+    f.write(resp)
     f.close()
 
 
