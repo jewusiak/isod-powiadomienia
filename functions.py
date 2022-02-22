@@ -67,7 +67,7 @@ def sendUpdates(news: json, rec_email: str):
     
 </span>
 """.format(news[i]["subject"] if "subject" in news[i] else "", news[i]["modifiedDate"] if "modifiedDate" in news[i] else "", news[i]["modifiedBy"] if "modifiedBy" in news[i] else "" , news[i]["content"] if "content" in news[i] else "")
-
+        print("Utworzono: '{}' o {}".format(news[i]["subject"] if "subject" in news[i] else "", datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")))
     html = """\
     <html>
 
@@ -95,3 +95,4 @@ def sendUpdates(news: json, rec_email: str):
         server.sendmail(
             sender_email, rec_email, message.as_string()
         )
+    print("Wysłano o {}".format(datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")))
