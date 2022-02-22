@@ -1,3 +1,5 @@
+import json
+
 import functions
 from jsoncomparison import Compare, NO_DIFF
 
@@ -22,7 +24,11 @@ if first_old!=new_resp_json["items"][0]["hash"]:
 if(it>0):
     functions.sendUpdates(new_resp_json["items"][0:it], passes.getToEmail())
 
-functions.writeToFile(new_resp_response.text)
+to_write={"items":[]}
+for x in new_resp_json["items"]:
+    to_write["items"].append({"hash":x["hash"]})
+
+functions.writeToFile(json.dumps(to_write))
 
 
 

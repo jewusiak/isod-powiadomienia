@@ -66,7 +66,7 @@ def sendUpdates(news: json, rec_email: str):
 	    </div>
     
 </span>
-""".format(news[i]["subject"], news[i]["modifiedDate"], news[i]["modifiedBy"], news[i]["content"])
+""".format(news[i]["subject"] if "subject" in news[i] else "", news[i]["modifiedDate"] if "modifiedDate" in news[i] else "", news[i]["modifiedBy"] if "modifiedBy" in news[i] else "" , news[i]["content"] if "content" in news[i] else "")
 
     html = """\
     <html>
