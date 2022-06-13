@@ -76,7 +76,7 @@ def sendUpdates(news: json, rec_email: str):
         </h2>
         {1}
         
-        <br><br><span style="font-style: italic">Wysłano automatycznie. Grzegorz Jewusiak {2} - <a href="https://jewusiak.pl">jewusiak.pl</a></span>
+        <br><br><span style="font-style: italic">jewusiak.pl/isod {2} - <a href="https://jewusiak.pl">jewusiak.pl</a></span>
       </body>
     </html>
     """.format(number_message, news_block,datetime.date.today().year)
